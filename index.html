@@ -629,6 +629,7 @@ window.location.href = "thankyou.html";
             
         }
     } catch (err) {
+        localStorage.setItem('last_order_details', JSON.stringify(orderDataForReceipt));
         window.location.href = 'https://nithishprogrammer.github.io/jjherbals/thankyou.html';
     }
 });
