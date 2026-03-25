@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | JJ Herbals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="thank-you-body">
+
+    <div class="thank-you-container">
+        <header class="success-header">
+            <div class="check-icon">✔</div>
+            <h1>Order Placed!</h1>
+            <p>Thank you for choosing homemade care.</p>
+            <b><p>Take a Screenshot of this !</p></b>
+        </header>
+
+        <section class="receipt-box">
+            <h3>Order Summary</h3>
+            <div class="receipt-row"><span>Order No:</span> <strong id="res-orderid">#JJH-12345</strong></div>
+            <div class="receipt-row"><span>Date:</span> <span id="res-date">--/--/----</span></div>
+            <hr>
+            <div class="receipt-row"><span>Customer:</span> <span id="res-name">---</span></div>
+            <div class="receipt-row"><span>Address:</span> <span id="res-address">---</span></div>
+            <hr>
+            <div class="receipt-items">
+                <strong>Items:</strong>
+                <p id="res-items">---</p>
+            </div>
+            <div class="receipt-total">
+                <span>Total Amount:</span>
+                <span id="res-total">₹0</span>
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <h3>What Happens Next?</h3>
+            <ul>
+                <li>📞 <strong>Confirmation:</strong> We will call you within 42 hours to confirm this order.</li>
+                <li>💬 <strong>WhatsApp:</strong> Payment (UPI) and details will be sent to your only via WhatsApp.</li>
+                <li>📦 <strong>Policy:</strong> Keep an unboxing video ready for any damage claims.</li>
+            </ul>
+        </section>
+
+        <div class="thank-you-footer">
+            <p>Need help? WhatsApp us: <strong>+91 63821 71740</strong></p>
+            <a href="index.html" class="back-home">Back to Shop</a>
+        </div>
+    </div>
+
+    <script>
+        // Logic to pull the last order info from localStorage
+        window.onload = function() {
+            const lastOrder = JSON.parse(localStorage.getItem('last_order_details'));
+            
+            if(lastOrder) {
+                document.getElementById('res-orderid').innerText = "#" + lastOrder.Order_ID;
+                document.getElementById('res-date').innerText = lastOrder.Date;
+                document.getElementById('res-name').innerText = lastOrder.Customer;
+                document.getElementById('res-address').innerText = lastOrder.Address;
+                document.getElementById('res-items').innerText = lastOrder.Items;
+                document.getElementById('res-total').innerText = "₹" + lastOrder.Total;
+            }
+        };
+    </script>
+
+    <style>/* Thank You Page Special Styles */
+.thank-you-body {
+    background-color: #f0f4f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.thank-you-container {
+    background: white;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(45, 90, 39, 0.1);
+    text-align: center;
+}
+
+.success-header .check-icon {
+    background: var(--primary);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+}
+
+.success-header h1 { color: var(--primary); margin-bottom: 5px; }
+
+/* Receipt Box */
+.receipt-box {
+    background: #f9fbf9;
+    border: 1px dashed var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.receipt-items p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.receipt-total {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+/* Next Steps */
+.next-steps { text-align: left; margin-bottom: 30px; }
+.next-steps h3 { font-size: 1.1rem; color: var(--primary); }
+.next-steps ul { padding-left: 20px; list-style: none; }
+.next-steps li { margin-bottom: 10px; font-size: 0.9rem; position: relative; }
+
+.back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+}
+</style>
+</body>
+</html>
