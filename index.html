@@ -611,6 +611,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     try {
         
         sub.style.backgroundColor = 'grey'
+        sub.disabled = true;
         sub.innerHTML = 'Loading...'
         sub.style.cursor = 'not-allowed'
         const response = await fetch('https://sheetdb.io/api/v1/qnbb7uvfnbn2v', {
