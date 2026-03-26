@@ -610,8 +610,8 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     // Replace with your SheetDB URL
     try {
         
-        sub.style.backgroundColor = 'grey'
         sub.disabled = true;
+        sub.style.backgroundColor = 'grey'
         sub.innerHTML = 'Loading...'
         sub.style.cursor = 'not-allowed'
         const response = await fetch('https://sheetdb.io/api/v1/qnbb7uvfnbn2v', {
@@ -633,6 +633,7 @@ const orderData = {
 };
 
 // Save it so the next page can read it
+localStorage.clear();
 localStorage.setItem('last_order_details', JSON.stringify(orderData));
 
 // Then redirect
@@ -640,7 +641,7 @@ window.location.href = "thankyou.html";
             
         }
     } catch (err) {
-        console.log('Errrrrr');
+        alert('Error Occured');
     }
 });
 
