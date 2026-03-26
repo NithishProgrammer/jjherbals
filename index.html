@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JJ Herbals | Homemade & Pure</title>
-    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
@@ -92,7 +92,7 @@
                 <input type="text" id="custName" placeholder="Full Name" required>
                 <input type="text" id="custPhone" placeholder="WhatsApp Number" required>
                 <textarea id="custAddress" placeholder="Full Delivery Address (with Pincode)" required></textarea>
-                <button type="submit" class="place-order-btn">Place COD Order</button>
+                <button type="submit" id="sub" class="place-order-btn">Place COD Order</button>
             </form>
         </div>
     </div>
@@ -577,6 +577,8 @@ function filterCategory(cat, btn) {
     });
 }
 
+var sub = document.getElementById('sub')
+
 function handleSearch() {
     const query = document.getElementById('searchInput').value.toLowerCase();
     const cards = document.querySelectorAll('.product-card');
@@ -593,6 +595,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
 
     const orderData = {
         
+          "data": { 
             "Order_ID": "JJH-" + Date.now().toString().slice(-5),
             "Customer": document.getElementById('custName').value,
             "WPhone": document.getElementById('custPhone').value,
@@ -600,11 +603,16 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
             "Items": cart.map(i => i.name).join(", "),
             "Total": document.getElementById('cartTotal').innerText,
             "Date": new Date().toLocaleString()
-    };
+    }}
+    ;
 
     // Replace with your SheetDB URL
     try {
-        const response = await fetch('https://jjherb.onrender.com/post', {
+        
+        sub.style.backgroundColor = 'grey'
+        sub.innerHTML = 'Loading...'
+        sub.style.cursor = 'not-allowed'
+        const response = await fetch('https://sheetdb.io/api/v1/qnbb7uvfnbn2v', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderData)
