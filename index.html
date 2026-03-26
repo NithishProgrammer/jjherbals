@@ -54,6 +54,17 @@
                 <button class="add-btn" onclick="addToCart('Herbal Hair Oil', 299)">Add to Cart</button>
             </div>
 
+            <div class="product-card" data-category="hair" data-name="hibiscus-shampoo">
+                <div class="img-container">
+                    <img src="hiShampo.png" alt="Hair Oil">
+                </div>
+                <h3>Herbal Hibiscus Shampoo</h3>
+                <p class="desc">Natural Hibiscus Shampoo for you Hair (200ml)</p>
+                <span class="price">₹200</span>
+                <button class="add-btn" onclick="addToCart('Herbal Hair Oil', 299)">Add to Cart</button>
+            </div>
+
+
             <div class="product-card" data-category="face" data-name="kanji mix">
                 <div class="img-container">
                     <img src="rose-water.png" alt="Kanji Mix">
@@ -251,7 +262,7 @@ body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .product-card { background: white; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; }
 .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-.img-container { height: 220px; overflow: hidden; border-radius: 10px; margin-bottom: 15px; }
+.img-container { height: 370px; overflow: hidden; border-radius: 10px; margin-bottom: 15px; }
 .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .product-card:hover img { transform: scale(1.1); }
 .price { display: block; font-size: 1.4rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
